@@ -11,9 +11,7 @@ public class Worker {
 
     public void start() {
         for (int i = 0; i < 100; i++) {
-            if (errorCallback.onError(i)) {
-                callback.onDone("Task " + i + " failed");
-            }else {
+            if (!errorCallback.onError(i)) {
                 callback.onDone("Task " + i + " is done");
             }
         }
